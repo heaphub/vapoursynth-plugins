@@ -2,7 +2,7 @@ include config.mak
 
 PLUGINS = $(shell ls -d plugins/*)
 pluginsdir := $(libdir)/vapoursynth
-dist-packages := $(prefix)/lib/python3/dist-packages
+dist-packages := $(prefix)/lib/python3.8/dist-packages
 
 models = noise1_model.json noise2_model.json noise3_model.json scale2.0x_model.json
 
@@ -33,8 +33,6 @@ install:
 	$(foreach SCRIPT,$(shell ls plugins/*/*.py scripts/*.py), \
 		$(INSTALL_DATA) $(SCRIPT) $(DESTDIR)$(datarootdir)/vsscripts/$$(basename $(SCRIPT)) $(NL))
 
-	$(INSTALL) -m 755 plugins/d2vsource/d2vscan.pl $(DESTDIR)$(pluginsdir)
-	$(INSTALL_DATA) plugins/d2vsource/d2vscan.txt $(DESTDIR)$(docdir)/d2vscan
 	$(foreach FILE,$(shell ls plugins/*/readme* plugins/*/README*), \
 		$(INSTALL_DATA) $(FILE) $(DESTDIR)$(docdir)/$(shell echo $$(basename $$(dirname $(FILE)))) $(NL))
 	$(foreach FILE,$(shell ls scripts/*.txt plugins/flash3kyuu_deband/*.txt), \
