@@ -2,7 +2,7 @@ include config.mak
 
 PLUGINS = $(shell ls -d plugins/*)
 pluginsdir := $(libdir)/vapoursynth
-dist-packages := $(prefix)/lib/python3.8/dist-packages
+dist-packages := $(prefix)/lib/python3.9/dist-packages
 
 models = noise1_model.json noise2_model.json noise3_model.json scale2.0x_model.json
 
