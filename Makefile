@@ -2,7 +2,7 @@ include config.mak
 
 PLUGINS = $(shell ls -d plugins/*)
 pluginsdir := $(libdir)/vapoursynth
-dist-packages := $(prefix)/lib/python3.7/dist-packages
+site-packages := $(prefix)/lib/python3.7/site-packages
 
 models = noise1_model.json noise2_model.json noise3_model.json scale2.0x_model.json
 
@@ -26,8 +26,8 @@ install:
 	$(INSTALL) -d $(DESTDIR)$(docdir)
 	$(INSTALL) -d $(DESTDIR)$(datarootdir)/nnedi3
 	$(INSTALL) -d $(DESTDIR)$(datarootdir)/vsscripts
-	$(INSTALL) -d $(DESTDIR)$(dist-packages)
-	ln -rs $(DESTDIR)$(datarootdir)/vsscripts $(DESTDIR)$(dist-packages)/vsscripts
+	$(INSTALL) -d $(DESTDIR)$(site-packages)
+	ln -rs $(DESTDIR)$(datarootdir)/vsscripts $(DESTDIR)$(site-packages)/vsscripts
 
 	$(foreach LIB,$(shell ls plugins/*/*.so),$(INSTALL_DATA) $(LIB) $(DESTDIR)$(pluginsdir) $(NL))
 	$(foreach SCRIPT,$(shell ls plugins/*/*.py scripts/*.py), \
