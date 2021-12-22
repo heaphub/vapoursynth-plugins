@@ -41,7 +41,6 @@ install:
 	$(INSTALL_DATA) README.md $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) scripts/README.md $(DESTDIR)$(docdir)/scripts.md
 	$(INSTALL_DATA) scripts/vsTAAmbk.md $(DESTDIR)$(docdir)
-	$(INSTALL_DATA) plugins/rawsource/format_list.txt $(DESTDIR)$(docdir)/rawsource_format_list
 	$(INSTALL_DATA) plugins/fmtconv/doc/fmtconv.html $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) plugins/fmtconv/doc/colorspace-subsampling.png $(DESTDIR)$(docdir)
 	$(INSTALL_DATA) plugins/fmtconv/doc/vapourdoc.css $(DESTDIR)$(docdir)
