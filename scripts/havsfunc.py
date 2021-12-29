@@ -5132,20 +5132,20 @@ def TemporalDegrain(          \
 
     if degrain == 3:
         bvec3 = srchSuper.mv.Analyse(isb=True, delta=3, blksize=blockSize\
-            , overlap=overlapValue, pelsearch=2, truemotion=False)
+            , overlap=overlapValue, truemotion=False)
         fvec3 = srchSuper.mv.Analyse(isb=False, delta=3, blksize=blockSize\
-            , overlap=overlapValue, pelsearch=2, truemotion=False)
+            , overlap=overlapValue, truemotion=False)
 
     if degrain >= 2:
         bvec2 = srchSuper.mv.Analyse(isb=True, delta=2, blksize=blockSize\
-            , overlap=overlapValue, pelsearch=2, truemotion=False)
+            , overlap=overlapValue, truemotion=False)
         fvec2 = srchSuper.mv.Analyse(isb=False, delta=2, blksize=blockSize\
-            , overlap=overlapValue, pelsearch=2, truemotion=False)
+            , overlap=overlapValue, truemotion=False)
 
     bvec1 = srchSuper.mv.Analyse(isb=True, delta=1, blksize=blockSize\
-        , overlap=overlapValue, pelsearch=2, truemotion=False)
+        , overlap=overlapValue, truemotion=False)
     fvec1 = srchSuper.mv.Analyse(isb=False, delta=1, blksize=blockSize\
-        , overlap=overlapValue, pelsearch=2, truemotion=False)
+        , overlap=overlapValue, truemotion=False)
 
     # First MV-denoising stage. Usually here's some temporal-medianfiltering
     # going on. For simplicity, we just use MVDegrain.
