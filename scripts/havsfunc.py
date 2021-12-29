@@ -4814,7 +4814,7 @@ def TemporalDegrain(          \
 
     # If HQ is activated, do an additional denoising
     if HQ > 0:
-        filterClip = core.hqdnd.hqdn3d(denoiseClip, 2,1.5,3,1.5)
+        filterClip = core.hqdnd.hqdn3d(denoiseClip,4,3,6,2)
     else:
         filterClip = denoiseClip
 
