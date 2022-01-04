@@ -4814,7 +4814,7 @@ def TemporalDegrain(          \
 
     # If HQ is activated, do an additional denoising
     if HQ > 0:
-        filterClip = core.hqdnd.hqdn3d(denoiseClip,4,3,6,2)
+        filterClip = core.hqdnd.Hqdn3d(denoiseClip,4,3,6,2)
     else:
         filterClip = denoiseClip
 
@@ -4878,7 +4878,7 @@ def TemporalDegrain(          \
 
     # Temporal filter to remove the last bits of dancinc pixels, YMMV.
     if HQ >= 2:
-        nr2 = core.hqdnd.hqdn3d(nr2, 0,0,4,1)
+        nr2 = core.hqdnd.Hqdn3d(nr2, 0,0,4,1)
 
     # Contra-sharpening: sharpen the denoised clip, but don't add more than
     # what was removed previously.
