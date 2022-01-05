@@ -4774,12 +4774,14 @@ def TemporalDegrain(          \
     , blockSize     = 16      \
     , pel           = 2       \
     , overlapValue  = None    \
+    , truemotion    = False   \
     , degrain       = 2       \
     , maxPxChange   = 255     \
     , thrDegrain1   = 400     \
     , thrDegrain2   = 300     \
     , HQ            = 1       \
 ) :
+
 
     if int(degrain) != degrain or degrain < 1 or degrain > 3:
         raise SyntaxError(\
@@ -4829,20 +4831,20 @@ def TemporalDegrain(          \
 
     if degrain == 3:
         bvec3 = core.mv.Analyse(srchSuper, isb=True, delta=3, blksize=blockSize\
-            , overlap=overlapValue, truemotion=False)
+            , overlap=overlapValue, truemotion=truemotion)
         fvec3 = core.mv.Analyse(srchSuper, isb=False, delta=3, blksize=blockSize\
-            , overlap=overlapValue, truemotion=False)
+            , overlap=overlapValue, truemotion=truemotion)
 
     if degrain >= 2:
         bvec2 = core.mv.Analyse(srchSuper, isb=True, delta=2, blksize=blockSize\
-            , overlap=overlapValue, truemotion=False)
+            , overlap=overlapValue, truemotion=truemotion)
         fvec2 = core.mv.Analyse(srchSuper, isb=False, delta=2, blksize=blockSize\
-            , overlap=overlapValue, truemotion=False)
+            , overlap=overlapValue, truemotion=truemotion)
 
     bvec1 = core.mv.Analyse(srchSuper, isb=True, delta=1, blksize=blockSize\
-        , overlap=overlapValue, truemotion=False)
+        , overlap=overlapValue, truemotion=truemotion)
     fvec1 = core.mv.Analyse(srchSuper, isb=False, delta=1, blksize=blockSize\
-        , overlap=overlapValue, truemotion=False)
+        , overlap=overlapValue, truemotion=truemotion)
 
     # First MV-denoising stage. Usually here's some temporal-medianfiltering
     # going on. For simplicity, we just use MVDegrain.
